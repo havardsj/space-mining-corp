@@ -36,7 +36,6 @@
 
 	// Update game logic
 	function updateGameLogic(): void {
-		// Increment the resource by a specified amount
 		incrementResource('rock', 0.1);
 	}
 
