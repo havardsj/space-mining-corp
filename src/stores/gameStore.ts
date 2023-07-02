@@ -6,13 +6,23 @@ const initialState = {
 		diamonds: 0
 	},
 	crew: {
-		miners: 0,
-		mechanics: 0,
-		soldiers: 0
+		active: 0,
+		available: 0,
+		roles: {
+			miners: 0,
+			mechanics: 0,
+			soldiers: 0
+		}
 	},
 	upgrades: {
-		automatedMiner: false,
-		mechanicWorkshop: false
+		automatedMiner: {
+			active: 0,
+			available: 8
+		},
+		mechanicWorkshop: {
+			active: 0,
+			available: 0
+		}
 	}
 };
 
