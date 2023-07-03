@@ -9,5 +9,6 @@ export default function handleMiners(gameStore: any) {
 	if (Math.random() < 0.01) {
 		gameStore.resources.gold.current += 1; // Increment gold
 		gameStore.resources.gold.lifetime += 1; // Increment gold
+		gameStore.log.push('Your miners have struck gold (+1)');
 	}
 }

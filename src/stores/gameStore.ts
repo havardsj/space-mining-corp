@@ -1,9 +1,6 @@
 import { writable } from 'svelte/store';
 
 const initialState = {
-	utils: {
-		lastUpdateTime: 0
-	},
 	resources: {
 		rock: {
 			current: 0,
@@ -50,7 +47,11 @@ const initialState = {
 			requirementAmount: 10,
 			unlocked: false
 		}
-	}
+	},
+	utils: {
+		lastUpdateTime: 0
+	},
+	log: []
 };
 
 export const gameStore = writable(initialState);

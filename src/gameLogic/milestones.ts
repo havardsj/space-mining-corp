@@ -6,8 +6,10 @@ export default function checkMilestoneProgress(gameStore: any): void {
 		if (gameStore.resources[miletone.requirementResource].lifetime >= miletone.requirementAmount) {
 			miletone.unlocked = true;
 			const toast = {
-				message: miletone.description
+				message: miletone.description,
+				background: 'variant-filled-success'
 			};
+			gameStore.log.push('MILESTONE! -' + miletone.description);
 			toastStore.trigger(toast);
 		}
 	});
