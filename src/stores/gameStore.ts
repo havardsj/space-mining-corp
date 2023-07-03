@@ -6,11 +6,13 @@ const initialState = {
 	},
 	resources: {
 		rock: {
-			amount: 0,
+			current: 0,
+			lifetime: 0,
 			perTick: 0
 		},
 		gold: {
-			amount: 0,
+			current: 0,
+			lifetime: 0,
 			perTick: 0
 		}
 	},
@@ -26,11 +28,27 @@ const initialState = {
 	upgrades: {
 		miningExperts: {
 			active: 0,
-			available: 0
+			available: 2
 		},
 		mechanicWorkshop: {
 			active: 0,
 			available: 0
+		}
+	},
+	milestones: {
+		rockCollector: {
+			title: 'Rock collector',
+			description: "You've collected enough rocks to start finding gold",
+			requirementResource: 'rock',
+			requirementAmount: 20,
+			unlocked: false
+		},
+		goldDigger: {
+			title: 'Gold digger',
+			description: 'You have found some gold',
+			requirementResource: 'gold',
+			requirementAmount: 10,
+			unlocked: false
 		}
 	}
 };
