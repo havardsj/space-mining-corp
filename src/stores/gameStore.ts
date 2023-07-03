@@ -1,13 +1,22 @@
 import { writable } from 'svelte/store';
 
 const initialState = {
+	utils: {
+		lastUpdateTime: 0
+	},
 	resources: {
-		rock: 0,
-		diamonds: 0
+		rock: {
+			amount: 0,
+			perTick: 0
+		},
+		gold: {
+			amount: 0,
+			perTick: 0
+		}
 	},
 	crew: {
 		active: 0,
-		available: 0,
+		available: 5,
 		roles: {
 			miners: 0,
 			mechanics: 0,
@@ -15,9 +24,9 @@ const initialState = {
 		}
 	},
 	upgrades: {
-		automatedMiner: {
+		miningExperts: {
 			active: 0,
-			available: 8
+			available: 0
 		},
 		mechanicWorkshop: {
 			active: 0,
