@@ -16,12 +16,12 @@
 	});
 
 	function saveGame() {
-		console.log('saving game...');
-		const updateInterval = 1000 * 10; // every 10 seconds
+		const updateInterval = 1000 * 60; // every 10 seconds
 
 		setInterval(() => {
 			// Game logic
 			localStorage.setItem('saveData', JSON.stringify($gameStore));
+			$gameStore.lastSave = Date.now();
 		}, updateInterval);
 	}
 
@@ -46,20 +46,19 @@
 	}
 </script>
 
-<main>
-	<h1 class="text-3xl text-center">Space Mining Corp</h1>
+<main class="p-4">
 	<TabGroup>
 		<Tab bind:group={tabSet} name="tab1" value={0}>Main</Tab>
 		<Tab bind:group={tabSet} name="tab2" value={1}>Milestones</Tab>
-		<Tab bind:group={tabSet} name="tab2" value={2}>Log</Tab>
+		<!-- <Tab bind:group={tabSet} name="tab2" value={2}>Log</Tab> -->
 		<!-- Tab Panels --->
 		<svelte:fragment slot="panel">
 			{#if tabSet === 0}
 				<Main />
 			{:else if tabSet === 1}
 				<Milestones />
-			{:else if tabSet === 2}
-				<Log />
+				<!-- {:else if tabSet === 2}
+				<Log /> -->
 			{/if}
 		</svelte:fragment>
 	</TabGroup>

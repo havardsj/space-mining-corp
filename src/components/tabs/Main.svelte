@@ -1,10 +1,11 @@
 <script lang="ts">
 	import { gameStore } from '../../stores/gameStore';
 	import Resource from '../resource/Resource.svelte';
+	import Log from './Log.svelte';
 </script>
 
 {#if $gameStore.hasLoaded}
-	<div class="m-12">
+	<div class="m-12 flex justify-between">
 		<div class="flex flex-col gap-12">
 			<div>
 				<h3 class="text-2xl">Resources:</h3>
@@ -95,5 +96,6 @@
 				</div>
 			</div>
 		</div>
+		<Log />
 	</div>
 {/if}

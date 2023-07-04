@@ -1,15 +1,9 @@
 import { writable } from 'svelte/store';
 import { browser } from '$app/environment';
 
-// export const gameStore = writable();
-
-interface saveData {
-	myString: string;
-	myNumber: number;
-}
-
 const initialState = {
 	hasLoaded: true,
+	lastSave: 0,
 	resources: {
 		rock: {
 			displayName: 'Rock',
