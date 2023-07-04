@@ -12,7 +12,18 @@
 
 	onMount(() => {
 		startGameLoop();
+		saveGame();
 	});
+
+	function saveGame() {
+		console.log('saving game...');
+		const updateInterval = 1000 * 10; // every 10 seconds
+
+		setInterval(() => {
+			// Game logic
+			localStorage.setItem('saveData', JSON.stringify($gameStore));
+		}, updateInterval);
+	}
 
 	// Game loop
 	function startGameLoop(): void {

@@ -1,13 +1,24 @@
 import { writable } from 'svelte/store';
+import { browser } from '$app/environment';
+
+// export const gameStore = writable();
+
+interface saveData {
+	myString: string;
+	myNumber: number;
+}
 
 const initialState = {
+	hasLoaded: true,
 	resources: {
 		rock: {
+			displayName: 'Rock',
 			current: 0,
 			lifetime: 0,
 			perTick: 0
 		},
 		gold: {
+			displayName: 'Gold',
 			current: 0,
 			lifetime: 0,
 			perTick: 0
@@ -54,4 +65,9 @@ const initialState = {
 	log: []
 };
 
-export const gameStore = writable(initialState);
+// const saveData = JSON.parse(browser && localStorage.getItem('saveData')) || initialState;
+// export const gameStore = writable(browser && saveData);
+const saveData = JSON.parse(
+	(browser && localStorage.getItem('saveData')) || JSON.stringify(initialState)
+);
+export const gameStore = writable(browser && saveData);
