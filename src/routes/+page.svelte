@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { TabGroup, Tab, TabAnchor } from '@skeletonlabs/skeleton';
 	import Main from '../components/tabs/Main.svelte';
-	import Log from '../components/tabs/Log.svelte';
 	import Milestones from '../components/tabs/Milestones.svelte';
 	import { onMount } from 'svelte';
 	import { gameStore } from '../stores/gameStore';
@@ -31,8 +30,40 @@
 
 		setInterval(() => {
 			// Game logic
+			$gameStore.time.tick += 1;
 			updateGameLogic();
+			handleTime();
 		}, updateInterval);
+	}
+
+	function handleTime() {
+		// NOTES:
+		// 10 ticks = 1 second
+		// 600 ticks = 1 minute
+		// 36 000 ticks = 1 hour
+		const ticksPerDay = 300;
+		const daysPerMonth = 5;
+		const monthsPerYear = 5;
+
+		// new day every 30 seconds
+		if ($gameStore.time.tick >= ticksPerDay) {
+			$gameStore.time.day += 1;
+			$gameStore.time.tick = 1;
+		}
+
+		// numbers of months
+		if ($gameStore.time.day >= daysPerMonth) {
+			$gameStore.time.month += 1;
+			$gameStore.time.day = 1;
+		}
+
+		if ($gameStore.time.month >= monthsPerYear) {
+			$gameStore.time.year += 1;
+
+			// new year, reset values
+			$gameStore.time.day = 1;
+			$gameStore.time.month = 1;
+		}
 	}
 
 	// Update game logic

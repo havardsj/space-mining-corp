@@ -6,13 +6,7 @@
 
 	let logLength = $gameStore.log.length;
 
-	// $: logRef, scrollToBottom(element);
-
 	onMount(() => scrollToBottom(element));
-	// afterUpdate(() => {
-	// 	console.log(element.scrollTop);
-	// 	console.log(element.scrollHeight);
-	// });
 
 	function scrollToBottom(node: any) {
 		if (node) {
@@ -23,10 +17,9 @@
 	gameStore.subscribe((val) => {
 		if (val.log && val.log.length > logLength) {
 			console.log('log has been updated');
-			scrollToBottom(element);
+			handleScroll();
 			logLength++;
 		}
-		// console.log(val);
 	});
 
 	async function handleScroll() {
@@ -41,7 +34,7 @@
 		<ul class="list overflow-auto max-h-96" bind:this={element}>
 			{#each $gameStore.log as event}
 				<li>
-					<span class="flex-auto">{event}</span>
+					<span class="flex-auto text-xs">{event}</span>
 				</li>
 			{/each}
 		</ul>

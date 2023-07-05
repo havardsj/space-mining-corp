@@ -2,6 +2,12 @@ import { writable } from 'svelte/store';
 import { browser } from '$app/environment';
 
 const initialState = {
+	time: {
+		tick: 1,
+		year: 1,
+		month: 1,
+		day: 1
+	},
 	hasLoaded: true,
 	lastSave: 0,
 	resources: {

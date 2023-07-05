@@ -20,10 +20,19 @@
 			>Corp.</span
 		>
 	</div>
-	<div class="flex gap-2 items-center">
-		<span class="text-xs">Last saved: {dayjs($gameStore.lastSave).fromNow()}</span>
-		<button type="button" class="btn variant-ghost btn-sm">Save</button>
-		<button type="button" class="btn variant-ghost btn-sm">Options</button>
-		<button type="button" class="btn variant-ghost-warning btn-sm">Wipe</button>
+	<div class="flex flex-col gap-4">
+		<div class="flex gap-2 items-center">
+			<span class="text-xs">Last saved: {dayjs($gameStore.lastSave).fromNow()}</span>
+			<button type="button" class="btn variant-ghost btn-sm">Save</button>
+			<button type="button" class="btn variant-ghost btn-sm">Options</button>
+			<button type="button" class="btn variant-ghost-warning btn-sm">Wipe</button>
+		</div>
+
+		{#if $gameStore.hasLoaded}
+			<span class="text-sm text-right">
+				Year: {$gameStore.time.year}
+				- Month: {$gameStore.time.month}
+			</span>
+		{/if}
 	</div>
 </div>
