@@ -4,6 +4,10 @@
 
 	let element: any;
 
+	let logLength = $gameStore.log.length;
+
+	// $: logRef, scrollToBottom(element);
+
 	onMount(() => scrollToBottom(element));
 	// afterUpdate(() => {
 	// 	console.log(element.scrollTop);
@@ -11,8 +15,19 @@
 	// });
 
 	function scrollToBottom(node: any) {
-		node.scroll({ top: node.scrollHeight, behavior: 'smooth' });
+		if (node) {
+			node.scroll({ top: node.scrollHeight, behavior: 'smooth' });
+		}
 	}
+
+	gameStore.subscribe((val) => {
+		if (val.log && val.log.length > logLength) {
+			console.log('log has been updated');
+			scrollToBottom(element);
+			logLength++;
+		}
+		// console.log(val);
+	});
 
 	async function handleScroll() {
 		await tick();

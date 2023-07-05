@@ -16,7 +16,7 @@
 	});
 
 	function saveGame() {
-		const updateInterval = 1000 * 60; // every 10 seconds
+		const updateInterval = 1000 * 60; // every 60 seconds
 
 		setInterval(() => {
 			// Game logic
