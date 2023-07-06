@@ -12,6 +12,7 @@ export default function handleMiners(gameStore: any) {
 	// NOTES:
 	// 0.01 = 1%
 	// 0.1 = 10%
+	// chance to get gold per tick
 	const chanceToGetGold = 0.01;
 	if (Math.random() < chanceToGetGold * gameStore.crew.roles.miners) {
 		console.log(`chance to get gold: ${chanceToGetGold * gameStore.crew.roles.miners}`);

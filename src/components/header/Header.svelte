@@ -9,15 +9,15 @@
 	<div class="flex text-3xl">
 		<span
 			class="bg-gradient-to-br from-blue-500 to-cyan-300 bg-clip-text text-transparent box-decoration-clone"
-			>Space.</span
+			>Space</span
 		>
 		<span
 			class="bg-gradient-to-br from-red-500 to-yellow-500 bg-clip-text text-transparent box-decoration-clone"
-			>Mining.</span
+			>Mining</span
 		>
 		<span
 			class="bg-gradient-to-br from-pink-500 to-violet-500 bg-clip-text text-transparent box-decoration-clone"
-			>Corp.</span
+			>Corp</span
 		>
 	</div>
 	<div class="flex flex-col gap-4">

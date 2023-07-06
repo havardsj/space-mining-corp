@@ -1,8 +1,10 @@
 <script lang="ts">
 	import { gameStore } from '../../stores/gameStore';
 	import { afterUpdate, onMount, tick } from 'svelte';
+	import { SlideToggle } from '@skeletonlabs/skeleton';
 
 	let element: any;
+	let autoscrollEnabled = true;
 
 	let logLength = $gameStore.log.length;
 
@@ -23,6 +25,7 @@
 	});
 
 	async function handleScroll() {
+		if (!autoscrollEnabled) return;
 		await tick();
 		scrollToBottom(element);
 	}
@@ -38,5 +41,13 @@
 				</li>
 			{/each}
 		</ul>
+		<SlideToggle
+			class="mt-4"
+			name="slider-label"
+			size="sm"
+			on:change={() => (autoscrollEnabled = !autoscrollEnabled)}
+			checked={autoscrollEnabled}
+			>Autoscroll{autoscrollEnabled ? ' Enabled' : ' Disabled'}</SlideToggle
+		>
 	</div>
 {/if}
