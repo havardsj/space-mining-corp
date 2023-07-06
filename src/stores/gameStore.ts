@@ -9,7 +9,7 @@ const initialState = {
 		day: 1
 	},
 	hasLoaded: true,
-	lastSave: 0,
+	lastSave: null,
 	resources: {
 		rock: {
 			displayName: 'Rock',

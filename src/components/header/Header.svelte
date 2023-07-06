@@ -22,7 +22,9 @@
 	</div>
 	<div class="flex flex-col gap-4">
 		<div class="flex gap-2 items-center">
-			<span class="text-xs">Last saved: {dayjs($gameStore.lastSave).fromNow()}</span>
+			{#if $gameStore.lastSave}
+				<span class="text-xs">Last saved: {dayjs($gameStore.lastSave).fromNow()}</span>
+			{/if}
 			<button type="button" class="btn variant-ghost btn-sm">Save</button>
 			<button type="button" class="btn variant-ghost btn-sm">Options</button>
 			<button type="button" class="btn variant-ghost-warning btn-sm">Wipe</button>
