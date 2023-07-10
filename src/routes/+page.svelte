@@ -46,18 +46,18 @@
 		const monthsPerYear = 5;
 
 		// new day every 30 seconds
-		if ($gameStore.time.tick >= ticksPerDay) {
+		if ($gameStore.time.tick > ticksPerDay) {
 			$gameStore.time.day += 1;
 			$gameStore.time.tick = 1;
 		}
 
 		// numbers of months
-		if ($gameStore.time.day >= daysPerMonth) {
+		if ($gameStore.time.day > daysPerMonth) {
 			$gameStore.time.month += 1;
 			$gameStore.time.day = 1;
 		}
 
-		if ($gameStore.time.month >= monthsPerYear) {
+		if ($gameStore.time.month > monthsPerYear) {
 			$gameStore.time.year += 1;
 
 			// new year, reset values

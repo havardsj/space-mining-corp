@@ -33,9 +33,9 @@
 
 {#if $gameStore.hasLoaded}
 	<div>
-		<h2 class="text-xl mb-4">Event log ({$gameStore.log.length})</h2>
+		<h2 class="text-xl mb-4">Event log (last {$gameStore.log.slice(-100).length} events)</h2>
 		<ul class="list overflow-auto max-h-96" bind:this={element}>
-			{#each $gameStore.log as event}
+			{#each $gameStore.log.slice(-100) as event}
 				<li>
 					<span class="flex-auto text-xs">{event}</span>
 				</li>
@@ -47,7 +47,7 @@
 			size="sm"
 			on:change={() => (autoscrollEnabled = !autoscrollEnabled)}
 			checked={autoscrollEnabled}
-			>Autoscroll{autoscrollEnabled ? ' Enabled' : ' Disabled'}</SlideToggle
+			>Autoscroll {autoscrollEnabled ? 'Enabled' : 'Disabled'}</SlideToggle
 		>
 	</div>
 {/if}
